@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<h1>Magical Idea Universe</h1>
+<table class="table table-dark table-striped">
+    <tr>
+        <th>Idea</th>
+        <th>Kind</th>
+        <th>Status</th>
+    </tr>
+    {% for idea in idea_list %}
+        <tr>
+            <td>{{ idea.idea }}</td>
+            <td>{{ idea.kind }}</td>
+            <td>{{ idea.status }}</a></td>
+        </tr>
+    {% endfor %}
+</table>
+  
+{% endblock content %}
+

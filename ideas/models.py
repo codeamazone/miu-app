@@ -30,6 +30,7 @@ class Idea(models.Model):
         default=VISION
     )
     description = models.TextField()
+    next_steps = models.TextField(null=True)
     status = models.CharField(
         max_length=2,
         choices=STATUS_CHOICES,
@@ -41,3 +42,6 @@ class Idea(models.Model):
 
     def get_absulute_url(self):
         return reverse('idea_detail', args=[str(self.id)])
+
+
+# TODO: create Todos model connected to next_steps from ideas model
