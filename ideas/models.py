@@ -3,19 +3,19 @@ from django.urls import reverse
 
 
 class Idea(models.Model):
-    PENDING = 'NO'
-    ONGOING = 'ON'
-    COMPLETED = 'OK'
+    PENDING = 'Pending'
+    ONGOING = 'In Progress'
+    COMPLETED = 'Completed'
 
     STATUS_CHOICES = [
         (PENDING, 'Pending'),
-        (ONGOING, 'In Progress'),
+        (ONGOING, 'In progress'),
         (COMPLETED, 'Completed')
     ]
 
-    VISION = 'VIS'
-    TRY_SOMETHING = 'TRY'
-    PROJECT = 'PRO'
+    VISION = 'Vision'
+    TRY_SOMETHING = 'Try something'
+    PROJECT = 'Project'
 
     KIND_CHOICES = [
         (VISION, 'Vision'),
@@ -25,14 +25,14 @@ class Idea(models.Model):
 
     idea = models.CharField(max_length=200)
     kind = models.CharField(
-        max_length=3,
+        max_length=15,
         choices=KIND_CHOICES,
         default=VISION
     )
     description = models.TextField()
     next_steps = models.TextField(null=True)
     status = models.CharField(
-        max_length=2,
+        max_length=11,
         choices=STATUS_CHOICES,
         default=PENDING
     )
@@ -40,8 +40,9 @@ class Idea(models.Model):
     def __str__(self):
         return self.idea
 
-    def get_absulute_url(self):
+    def get_absolute_url(self):
         return reverse('idea_detail', args=[str(self.id)])
 
 
+# Write tests
 # TODO: create Todos model connected to next_steps from ideas model

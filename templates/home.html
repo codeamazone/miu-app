@@ -9,12 +9,14 @@
         <th>Idea</th>
         <th>Kind</th>
         <th>Status</th>
+        <th></th>
     </tr>
     {% for idea in idea_list %}
         <tr>
             <td>{{ idea.idea }}</td>
             <td>{{ idea.kind }}</td>
             <td>{{ idea.status }}</a></td>
+            <td><a href="{% url 'idea_detail' idea.pk %}">Details</a></td>
         </tr>
     {% endfor %}
 </table>
