@@ -1,45 +1,75 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <div class="card mb-3">
-    <img src="templates/media/giulia-may-8JFMYz-a8Xo-unsplash.jpg" class="card-img-top" alt="Info">
-    <div class="card-body">
-      <h5 class="card-title"><b>{{ object.idea }}</b></h5>
-      <p class="card-text"> Kind of Idea: {{ object.kind }}</p>
-      <p class="card-text"><small class="text-muted">{{ object.status }}</small></p>
-    </div>
+  <h1 style="color:#3cc6de">Details</h1>
+  <img
+    src="{% static 'img/abstract-19141_640.jpg' %}"
+    class="card-img-top"
+    style="height: 200px"
+    alt="colorful eye"
+  />
+  <div class="card-body">
+    <h5 class="card-title"><b>{{ object.idea }}</b></h5>
+    <p class="card-text">Kind of Idea: {{ object.kind }}</p>
+    <p class="card-text">
+      <small class="text-muted">{{ object.status }}</small>
+    </p>
   </div>
+</div>
 
 <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Description
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>What this idea is about:</strong>
-          <br/>
-          {{ object.description }}
-        </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        Description
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse show"
+      aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <strong>What this idea is about:</strong>
+        <br />
+        {{ object.description }}
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Next Steps
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>What has to be done next?</strong>
-          <br/>
-          {{ object.next_steps }}
-        </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseTwo"
+        aria-expanded="false"
+        aria-controls="collapseTwo"
+      >
+        Next Steps
+      </button>
+    </h2>
+    <div
+      id="collapseTwo"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingTwo"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <strong>What has to be done next?</strong>
+        <br />
+        {{ object.next_steps }}
       </div>
     </div>
-    <!-- <div class="accordion-item">
+  </div>
+  <!-- <div class="accordion-item">
       <h2 class="accordion-header" id="headingThree">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           Accordion Item #3
@@ -51,5 +81,5 @@
         </div>
       </div>
     </div> -->
-  </div>
+</div>
 {% endblock content %}

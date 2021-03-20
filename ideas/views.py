@@ -4,9 +4,9 @@ from django.views.generic import ListView, DetailView
 from .models import Idea
 
 
-class HomePageView(ListView):
+class IdeaListView(ListView):
     model = Idea
-    template_name = 'home.html'
+    template_name = 'idea_list.html'
     context_object_name = 'idea_list'
 
 
