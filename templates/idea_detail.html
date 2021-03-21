@@ -2,16 +2,17 @@
 <div class="card mb-3">
   <h1 style="color:#3cc6de">Details</h1>
   <img
-    src="{% static 'img/abstract-19141_640.jpg' %}"
+    src="{% static 'img/eyes.jpg' %}"
     class="card-img-top"
     style="height: 200px"
     alt="colorful eye"
   />
   <div class="card-body">
-    <h5 class="card-title"><b>{{ object.idea }}</b></h5>
-    <p class="card-text">Kind of Idea: {{ object.kind }}</p>
+    <h5 class="card-title"><b>{{ object.idea }} ({{ object.kind }})</b></h5>
+    <p class="card-text">{{ object.status }}</p>
     <p class="card-text">
-      <small class="text-muted">{{ object.status }}</small>
+      <a href="{% url 'idea_update' idea.pk %}" class="btn btn-info">Edit</a>
+      <a href="#" class="btn btn-danger">Delete</a>
     </p>
   </div>
 </div>
