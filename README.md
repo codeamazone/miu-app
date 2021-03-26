@@ -22,26 +22,34 @@ Via the update view you can edit the information on your selected idea.
 
 ## How to use locally on your computer
 
-- Install Python
-- Install the latest version of Django (I recommend doing so in a virtual environment for the project, I use pipenv for that)
+- Download and install [Python](https://www.python.org/downloads/)
+- install Pipenv
 
 ```
-pipenv shell
+pip3 install pipenv
 ```
+
+- open the project folder in your bash and install the latest version of Django with Pipenv
 
 ```
 pipenv install django
 ```
 
-- Create file named .env
+Activate the virtual environment
+
+```
+pipenv shell
+```
+
+- Create a file named .env
 - Get a secret key (for example on https://miniwebtool.com/django-secret-key-generator/)
-- enter the secret key in the .env file like this (enter your secret key where it says 'secret_key'):
+- Enter the secret key in the .env file like this (enter your secret key where it says 'secret_key'):
 
 ```
 export SECRET_KEY='<secret_key>'
 ```
 
-- migrate
+- Migrate
 
 ```
 python manage.py makemigrations ideas
