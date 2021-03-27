@@ -17,7 +17,7 @@ The detail view shows you the details of an idea
 
 ## Update View
 
-Via the update view you can edit the information on your selected idea.
+Via the update view you can edit the details of your selected idea.
 ![screenshot](static/img/screenshot_update.png)
 
 ## How to use locally on your computer
