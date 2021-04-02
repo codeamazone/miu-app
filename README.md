@@ -6,7 +6,7 @@
 
 A Django app that helps you manage and keep track of your ideas and visions.
 
-![screenshot](static/img/screenshot_listview.jpg)
+![screenshot](static/img/screenshot_listview.JPG)
 
 Sort your ideas according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
 
