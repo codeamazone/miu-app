@@ -13,7 +13,7 @@ Sort your ideas according to their name, kind (project, vision, try something), 
 ## Create View
 
 Add new ideas to the database.
-![screenshot](static/img/screenshot_new.png)
+![screenshot](static/img/screenshot_new.PNG)
 
 ## Detail View
 
