@@ -15,9 +15,10 @@
                 <td>{{ idea.kind }}</td>
                 <td>{{ idea.status }}</a></td>
                 <td><a href="{% url 'idea_detail' idea.pk %}">Details</a></td>
-            </tr>
+            </tr>            
         {% endfor %}
     </table>
+    <a href="{% url 'idea_new' %}" class="btn btn-info">New idea</a>
   
 {% endblock content %}
   

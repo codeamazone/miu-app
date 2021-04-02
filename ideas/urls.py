@@ -4,12 +4,13 @@ from .views import (
     IdeaListView,
     IdeaDetailView,
     IdeaUpdateView,
+    IdeaCreateView,
     # IdeaDeleteView,
-    # IdeaCreateView,
 )
 
 urlpatterns = [
     path('<int:pk>/edit', IdeaUpdateView.as_view(), name='idea_update'),
     path('<int:pk>', IdeaDetailView.as_view(), name='idea_detail'),
+    path('new', IdeaCreateView.as_view(), name='idea_new'),
     path('', IdeaListView.as_view(), name='idea_list'),
 ]
