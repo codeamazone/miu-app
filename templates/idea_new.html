@@ -1,24 +1,25 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-
-<img
-  src="{% static 'img/forward.jpg' %}"
-  class="card-img-top"
-  style="height:230px"
-  alt="eyes"
-/>
-<p style="font-size: 10px">
+<div class="card mb-3">
+  <h1 style="color:#3cc6de">New Idea</h1>
+  <img
+    src="{% static 'img/forward.jpg' %}"
+    class="card-img-top"
+    style="height: 230px"
+    alt="forward"
+  />
+</div>
+<p class="img_caption">
   Image by 
-  <a href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1274244">
+  <a class="greylink" href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1274244">
     Gerd Altmann
   </a> from 
-  <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1274244">
+  <a class="greylink" href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1274244">
     Pixabay
   </a>
 </p>
-<h1 style="color: #3cc6de">Add a New Idea</h1>
 <form action="" method="post">
   {% csrf_token %} {{ form.as_p }}
-  <button class="btn btn-primary ml-2" type="submit">Add</button>
+  <button class="btn btn-info ml-2" type="submit">Add</button>
 </form>
 <br />
 

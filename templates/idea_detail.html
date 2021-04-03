@@ -2,11 +2,14 @@
 <div class="card mb-3">
   <h1 style="color:#3cc6de">Details</h1>
   <img
-    src="{% static 'img/eyes.jpg' %}"
+    src="{% static 'img/eye.jpg' %}"
     class="card-img-top"
-    style="height: 200px"
-    alt="colorful eye"
+    style="height: 230px"
+    alt="eye"
   />
+  <p class="img_caption">
+    Image by <a class="greylink" href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=913966">Gerd Altmann</a> from <a class="greylink" href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=913966">Pixabay</a>
+  </p>
   <div class="card-body">
     <h5 class="card-title"><b>{{ object.idea }} ({{ object.kind }})</b></h5>
     <p class="card-text">{{ object.status }}</p>

@@ -1,11 +1,21 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<img
-  src="{% static 'img/change.jpg' %}"
-  class="card-img-top"
-  style="height: 230px"
-  alt="eyes"
-/>
-<h1 style="color: #3cc6de">Make your changes here</h1>
+<div class="card mb-3">
+  <h1 style="color:#3cc6de">Make your changes here</h1>
+  <img
+    src="{% static 'img/change.jpg' %}"
+    class="card-img-top"
+    style="height: 230px"
+    alt="change"
+  />
+</div>
+
+  <!-- <img
+    src="{% static 'img/change.jpg' %}"
+    class="card-img-top"
+    style="height: 230px"
+    alt="eyes"
+  /> -->
+<!-- <h1 style="color: #3cc6de">Make your changes here</h1> -->
 <form action="" method="post">
   {% csrf_token %} {{ form.as_p }}
   <button class="btn btn-info ml-2" type="submit">Update</button>
