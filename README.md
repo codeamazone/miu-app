@@ -4,30 +4,39 @@
 
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
-A Django app that helps you manage and keep track of your ideas and visions.
+A Django app that helps you manage and keep track of your ideas and visions with full CRUD functionality.
 
-![screenshot](static/img/screenshot_listview.JPG)
+![screenshot](static/img/screenshot_home.PNG)
 
-Sort your ideas according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
+## List View
 
-## Create View
+![screenshot](static/img/screenshot_idealist.PNG)
 
-Add new ideas to the database.
+The list view provides you with an overview of all ideas in your database. They are sorted according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
+
+## Create
+
+Add new ideas to your database via the create view.
 ![screenshot](static/img/screenshot_new.PNG)
 
-## Detail View
+## Read
 
-The detail view shows you the details of an idea
-![screenshot](static/img/screenshot_detail.png)
+The detail view shows you the details of a specific idea
+![screenshot](static/img/screenshot_details.PNG)
 
-## Update View
+## Update
 
-Via the update view you can edit the details of your selected idea.
-![screenshot](static/img/screenshot_update.png)
+Via the update view you can edit the details of a specific idea.
+![screenshot](static/img/screenshot_edit.PNG)
+
+## Delete
+
+![screenshot](static/img/screenshot_delete.PNG)
+On the delete screen you can delete a specific idea.
 
 ## How to use locally on your computer
 
-- Fork/Clone this repository
+- Fork/clone this repository
 - Download and install [Python](https://www.python.org/downloads/)
 - install Pipenv
 
@@ -57,6 +66,8 @@ export SECRET_KEY='<secret_key>'
 
 - Migrate
 
+  In your shell, execute the following commands for migrations successively:
+
 ```
 python manage.py makemigrations ideas
 ```
@@ -71,6 +82,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-If everything has worked your shell should provide you with the address with which to open the app in your browser (http://127.0.0.1:8000/)
+If everything has worked, your shell should provide you with the address with which to open the app in your browser (http://127.0.0.1:8000/)
+
+<br/>
+<br/>
 
 ## This is a pet project to play around with Django. It is a work-in-progress and will be updated continuously.
