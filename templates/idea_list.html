@@ -19,28 +19,56 @@
         Pixabay</a>
     </p>
 </div>
-    <table class="table table-dark table-striped">
+<input type="text" id="filterInput" onkeyup="filterStatus()" placeholder="Search for status..." title="Type in a status" style="margin-bottom: 20px; border: 2px solid rgb(78, 168, 180);">
+<table id="ideaTable" class="table table-dark table-striped">
+    <tr>
+        <th>Idea</th>
+        <th>Kind</th>
+        <th>Status</th>
+        <th style="text-align: right">What would you like to do?</th>
+    </tr>
+    {% for idea in idea_list %}
         <tr>
-            <th>Idea</th>
-            <th>Kind</th>
-            <th>Status</th>
-            <th style="text-align: right">What would you like to do?</th>
-        </tr>
-        {% for idea in idea_list %}
-            <tr>
-                <td>{{ idea.idea }}</td>
-                <td>{{ idea.kind }}</td>
-                <td>{{ idea.status }}</a></td>
-                <td style="text-align: right"><a href="{% url 'idea_detail' idea.pk %}" class="btn btn-sm btn-light">Details</a>
-                    <a href="{% url 'idea_update' idea.pk %}" class="btn btn-sm btn-info">Edit</a>
-                    <a href="{% url 'idea_delete' idea.pk %}" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>            
-        {% endfor %}
-    </table>
-    <a href="{% url 'idea_new' %}" class="btn btn-dark btn-outline-info">New idea</a>
-    <br/>
-    <br/>
+            <td>{{ idea.idea }}</td>
+            <td>{{ idea.kind }}</td>
+            <td>{{ idea.status }}</a></td>
+            <td style="text-align: right"><a href="{% url 'idea_detail' idea.pk %}" class="btn btn-sm btn-light">Details</a>
+                <a href="{% url 'idea_update' idea.pk %}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{% url 'idea_delete' idea.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>            
+    {% endfor %}
+</table>
+<a href="{% url 'idea_new' %}" class="btn btn-dark btn-outline-info">New idea</a>
+<br/>
+<br/>
+
+<script>
+    function filterStatus() {
+        var input,
+            filter,
+            table,
+            tr,
+            td,
+            i,
+            txtValue;
+        input = document.getElementById("filterInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("ideaTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
   
 {% endblock content %}
   
