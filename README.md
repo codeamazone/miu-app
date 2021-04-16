@@ -13,6 +13,7 @@ A Django app that helps you manage and keep track of your ideas and visions with
 ![screenshot](static/img/screenshot_idealist.PNG)
 
 The list view provides you with an overview of all ideas in your database. They are sorted according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
+A dropdown menu lets you filter ideas according to their status.
 
 ## Create
 
@@ -31,8 +32,8 @@ Via the update view you can edit the details of a specific idea.
 
 ## Delete
 
+On the delete page you can delete a specific idea.
 ![screenshot](static/img/screenshot_delete.PNG)
-On the delete screen you can delete a specific idea.
 
 ## How to use locally on your computer
 
@@ -66,7 +67,7 @@ export SECRET_KEY='<secret_key>'
 
 - Migrate
 
-  In your shell, execute the following commands for migrations successively:
+  In your shell, execute the following commands for migrations:
 
 ```
 python manage.py makemigrations ideas

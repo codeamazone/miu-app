@@ -1,17 +1,19 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<img
-  src="{% static 'img/really.jpg' %}"
-  class="card-img-top"
-  style="height:230px"
-  alt="woman"
-/>
+<div class="card mb-3">
+  <h1 style="color:#3cc6de">Delete</h1>
+  <img
+    src="{% static 'img/really.jpg' %}"
+    class="card-img-top"
+    style="height:230px"
+    alt="woman"
+  />
 <p class="img_caption">Image by 
 <a class="greylink" href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3271591">
 Gerd Altmann</a> from 
 <a class="greylink" href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3271591">
 Pixabay
 </a>
-<h1 style="color: #3cc6de">Delete</h1>
+<!-- <h1 style="color: #3cc6de">Delete</h1> -->
 <form action="" method="post">
   {% csrf_token %}
   <p>Are you sure you want to delete <b style="color: burlywood"> {{ object.idea }}? <b></p>
