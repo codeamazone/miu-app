@@ -11,7 +11,7 @@ Keep track of your ideas and visions and sort them by their name, kind of idea (
 
 ## List View
 
-![screenshot](static/img/screenshot_idealist2.png)
+![screenshot](static/img/screenshot_idealist.png)
 
 The ideas page provides you with an overview of all ideas in your database.
 Two dropdown menus let you filter ideas by their status and their kind.
