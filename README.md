@@ -12,22 +12,22 @@ A Django app that helps you manage and keep track of your ideas and visions with
 
 ![screenshot](static/img/screenshot_idealist.PNG)
 
-The list view provides you with an overview of all ideas in your database. They are sorted according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
-A dropdown menu lets you filter ideas according to their status.
+The ideas page provides you with an overview of all ideas in your database. They are sorted according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
+A dropdown menu lets you filter ideas by their status.
 
 ## Create
 
-Add new ideas to your database via the create view.
+Add new ideas to your database via the create page.
 ![screenshot](static/img/screenshot_new.PNG)
 
 ## Read
 
-The detail view shows you the details of a specific idea
+The detail page shows you the details of a specific idea
 ![screenshot](static/img/screenshot_details.PNG)
 
 ## Update
 
-Via the update view you can edit the details of a specific idea.
+Via the update page you can edit the details of a specific idea.
 ![screenshot](static/img/screenshot_edit.PNG)
 
 ## Delete
@@ -58,8 +58,13 @@ pipenv shell
 ```
 
 - In the project folder create a file named .env on the same level as the manage.py file
-- Get a secret key (for example on https://miniwebtool.com/django-secret-key-generator/)
-- Enter the secret key **in the .env file** inside the <> like this (your secret key goes where it says 'secret_key'):
+- Create a secret key by runnning the follwing command in your shell. The output string of 50 characters is your secret key. Copy it.
+
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
+- Paste the secret key **in the .env file** inside the <> like this (your secret key goes where it says 'secret_key'):
 
 ```
 export SECRET_KEY='<secret_key>'
