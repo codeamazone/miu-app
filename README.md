@@ -5,15 +5,16 @@
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 A Django app that helps you manage and keep track of your ideas and visions with full CRUD functionality.
+Keep track of your ideas and visions and sort them by their name, kind of idea (project, vision, try something), status (pending, in progress, completed), description and next steps.
 
 ![screenshot](static/img/screenshot_home.PNG)
 
 ## List View
 
-![screenshot](static/img/screenshot_idealist.PNG)
+![screenshot](static/img/screenshot_idealist.png)
 
-The ideas page provides you with an overview of all ideas in your database. They are sorted according to their name, kind (project, vision, try something), status (pending, in progress, completed), idea description and next steps.
-A dropdown menu lets you filter ideas by their status.
+The ideas page provides you with an overview of all ideas in your database.
+Two dropdown menus let you filter ideas by their status and their kind.
 
 ## Create
 
