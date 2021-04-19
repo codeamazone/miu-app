@@ -19,11 +19,19 @@
         Pixabay</a>
     </p>
 </div>
+<label for="filter-status">Filter by status:</label>
 <select id="filter-status" onchange="filterStatus()" style="margin-bottom: 5px; padding: 5px; background: #282829; color: white;">
     <option value="all" selected>All</option>
     <option value="Pending">Pending</option>
     <option value="In Progress">In Progress</option>
     <option value="Completed">Completed</option>
+</select>
+<label for="filter-kind">Filter by kind:</label>
+<select id="filter-kind" onchange="filterKind()" style="margin-bottom: 5px; padding: 5px; background: #282829; color: white;">
+    <option value="all" selected>All</option>
+    <option value="Vision">Vision</option>
+    <option value="Project">Project</option>
+    <option value="Try something">Try something</option>
 </select>
 <!-- <input type="text" id="filterInput" onkeyup="filterStatus()" placeholder="Search for status..." title="Type in a status" style="margin-bottom: 20px; border: 2px solid rgb(78, 168, 180);"> -->
 <table id="ideaTable" class="table table-dark table-striped">
@@ -64,6 +72,31 @@
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[2];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (filter == "all" || txtValue == filter) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function filterKind() {
+        var status,
+            filter,
+            table,
+            tr,
+            td,
+            i,
+            txtValue;
+        status = document.getElementById("filter-kind");
+        filter = status.options[status.selectedIndex].value;
+        table = document.getElementById("ideaTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (filter == "all" || txtValue == filter) {
