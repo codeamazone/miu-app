@@ -17,7 +17,7 @@ Pixabay
 <form action="" method="post">
   {% csrf_token %}
   <p>Are you sure you want to delete <b style="color: burlywood"> {{ object.idea }}? <b></p>
-  <button class="btn btn-danger ml-2" type="submit">Yes, delete!</button>
+  <button href="{% url 'idea_delete' idea.pk %}" class="btn btn-danger ml-2" type="submit">Yes, delete!</button>
   <a href="{% url 'idea_list' %}" class="btn btn-info">No, take me back</a>
 </form>
 
