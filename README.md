@@ -9,29 +9,29 @@ Keep track of your ideas and visions and sort them by their name, kind of idea (
 
 ![screenshot](static/img/screenshot_home.PNG)
 
-## List View
+## List Page
 
 ![screenshot](static/img/screenshot_idealist2.PNG)
 
 The ideas page provides you with an overview of all ideas in your database.
 Two dropdown menus let you filter ideas by their status and their kind.
 
-## Create
+## Create Page
 
 Add new ideas to your database via the create page.
 ![screenshot](static/img/screenshot_new.PNG)
 
-## Read
+## Detail Page
 
 The detail page shows you the details of a specific idea
 ![screenshot](static/img/screenshot_details.PNG)
 
-## Update
+## Update Page
 
 Via the update page you can edit the details of a specific idea.
 ![screenshot](static/img/screenshot_edit.PNG)
 
-## Delete
+## Delete Page
 
 On the delete page you can delete a specific idea.
 ![screenshot](static/img/screenshot_delete.PNG)
@@ -46,29 +46,29 @@ On the delete page you can delete a specific idea.
 pip3 install pipenv
 ```
 
-- open the project folder in your bash and install the latest version of Django with Pipenv
+- open the project folder in your shell and install the dependencies with Pipenv. If you don't want to use Pipenv, you can also open the project in a virtual env and use requirements.txt
 
 ```
-pipenv install django
+pipenv install
+```
+
+- In the project folder create a file named .env on the same level as the manage.py file
+- Create a secret key by running the follwing command in your shell. The output string of 50 characters is your secret key. Copy it.
+
+```
+python -c "import secrets; print(secrets.token_urlsafe())"
+```
+
+- Paste the secret key **in the .env file** like this (your secret key goes where it says 'secret_key'):
+
+```
+export SECRET_KEY='secret_key'
 ```
 
 Activate the virtual environment
 
 ```
 pipenv shell
-```
-
-- In the project folder create a file named .env on the same level as the manage.py file
-- Create a secret key by runnning the follwing command in your shell. The output string of 50 characters is your secret key. Copy it.
-
-```
-python -c "import secrets; print(secrets.token_urlsafe())"
-```
-
-- Paste the secret key **in the .env file** inside the <> like this (your secret key goes where it says 'secret_key'):
-
-```
-export SECRET_KEY='<secret_key>'
 ```
 
 - Migrate
