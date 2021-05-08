@@ -3,38 +3,27 @@ from django.urls import reverse
 
 
 class Idea(models.Model):
-    PENDING = 'Pending'
-    ONGOING = 'In Progress'
-    COMPLETED = 'Completed'
 
-    STATUS_CHOICES = [
-        (PENDING, 'Pending'),
-        (ONGOING, 'In progress'),
-        (COMPLETED, 'Completed')
-    ]
+    class IdeaStatus(models.IntegerChoices):
+        PENDING = 0, 'Pending'
+        ONGOING = 1, 'In progress'
+        COMPLETED = 2, 'Completed'
 
-    VISION = 'Vision'
-    TRY_SOMETHING = 'Try something'
-    PROJECT = 'Project'
-
-    KIND_CHOICES = [
-        (VISION, 'Vision'),
-        (TRY_SOMETHING, 'Try something'),
-        (PROJECT, 'Project')
-    ]
+    class IdeaKind(models.IntegerChoices):
+        VISION = 0, 'Vision'
+        TRY_SOMETHING = 1, 'Try something'
+        PROJECT = 2, 'Project'
 
     idea = models.CharField(max_length=200)
-    kind = models.CharField(
-        max_length=15,
-        choices=KIND_CHOICES,
-        default=VISION
+    kind = models.IntegerField(
+        default=IdeaKind.VISION,
+        choices=IdeaKind.choices
     )
     description = models.TextField()
     next_steps = models.TextField(null=True)
-    status = models.CharField(
-        max_length=11,
-        choices=STATUS_CHOICES,
-        default=PENDING
+    status = models.IntegerField(
+        default=IdeaStatus.PENDING,
+        choices=IdeaStatus.choices
     )
 
     def __str__(self):
@@ -44,5 +33,4 @@ class Idea(models.Model):
         return reverse('idea_detail', args=[str(self.id)])
 
 
-# Write tests
-# TODO: create Todos model connected to next_steps from ideas model
+# TODO: Write tests

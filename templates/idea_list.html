@@ -44,8 +44,8 @@
     {% for idea in idea_list %}
         <tr>
             <td>{{ idea.idea }}</td>
-            <td>{{ idea.kind }}</td>
-            <td>{{ idea.status }}</a></td>
+            <td>{{ idea.get_kind_display }}</td>
+            <td>{{ idea.get_status_display }}</a></td>
             <td style="text-align: right"><a href="{% url 'idea_detail' idea.pk %}" class="btn btn-sm btn-light">Details</a>
                 <a href="{% url 'idea_update' idea.pk %}" class="btn btn-sm btn-info">Edit</a>
                 <a href="{% url 'idea_delete' idea.pk %}" class="btn btn-sm btn-danger">Delete</a>
