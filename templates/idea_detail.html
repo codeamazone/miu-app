@@ -11,8 +11,8 @@
     Image by <a class="greylink" href="https://pixabay.com/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=913966">Gerd Altmann</a> from <a class="greylink" href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=913966">Pixabay</a>
   </p>
   <div class="card-body">
-    <h5 class="card-title"><b>{{ object.idea }} ({{ object.kind }})</b></h5>
-    <p class="card-text">{{ object.status }}</p>
+    <h5 class="card-title"><b>{{ object.idea }} ({{ object.get_kind_display }})</b></h5>
+    <p class="card-text">{{ object.get_status_display }}</p>
     <p class="card-text">
       <a href="{% url 'idea_update' idea.pk %}" class="btn btn-info">Edit</a>
       <a href="#" class="btn btn-danger">Delete</a>

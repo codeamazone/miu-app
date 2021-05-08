@@ -2,19 +2,18 @@ from django.db import models
 from django.urls import reverse
 
 
-class IdeaStatus(models.IntegerChoices):
-    PENDING = 0, 'Pending'
-    ONGOING = 1, 'In progress'
-    COMPLETED = 2, 'Completed'
-
-
-class IdeaKind(models.IntegerChoices):
-    VISION = 0, 'Vision'
-    TRY_SOMETHING = 1, 'Try something'
-    PROJECT = 2, 'Project'
-
-
 class Idea(models.Model):
+
+    class IdeaStatus(models.IntegerChoices):
+        PENDING = 0, 'Pending'
+        ONGOING = 1, 'In progress'
+        COMPLETED = 2, 'Completed'
+
+    class IdeaKind(models.IntegerChoices):
+        VISION = 0, 'Vision'
+        TRY_SOMETHING = 1, 'Try something'
+        PROJECT = 2, 'Project'
+
     idea = models.CharField(max_length=200)
     kind = models.IntegerField(
         default=IdeaKind.VISION,
