@@ -65,6 +65,9 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 export SECRET_KEY='secret_key'
 ```
 
+- Make sure that the database settings in settings.py correspond to the database you would like to use. For using the SQLite database that comes with Django by default, uncomment the two lines for SQLite and mark the MYySQL lines as a comment.
+  Otherwise, make sure to take all necessary steps to connect your DB of choice to the app. For using MySQL, you can follow this tutorial: https://morioh.com/p/4a4dc1e50d7d
+
 Activate the virtual environment
 
 ```
