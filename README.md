@@ -87,7 +87,7 @@ $ docker ps
 $ sudo docker ps
 ```
 <br>
-Copy the id of the miu container and enter that container in a subshell to run the migrations:
+Copy the id of the miu container and access that container in a subshell to run the migrations:
 
 *On Windows*
 ```
