@@ -36,9 +36,7 @@ Via the update page you can edit the details of a specific idea.
 On the delete page you can delete a specific idea.
 ![screenshot](static/img/screenshot_delete.PNG)
 
-## How to use locally on your computer in a
-
-## Docker development container
+## How to use locally on your computer in a Docker development container
 
 - Fork/clone this repository
 - Download and install [Python](https://www.python.org/downloads/)
