@@ -11,11 +11,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from environs import Env
+from environ import Env
 
 
+# Initialise environment variables
 env = Env()
-env.read_env()
+env.read_env(env_file='config/.env')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DJANGO_DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,16 +83,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        #     'ENGINE': 'django.db.backends.sqlite3',
-        #     'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'miu',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '',
-    }
+    # 'default': {
+    #     #     'ENGINE': 'django.db.backends.sqlite3',
+    #     #     'NAME': BASE_DIR / 'db.sqlite3',
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'miu',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    #     'USER': 'root',
+    #     'PASSWORD': '',
+    # }
+    'default': env.db()
 }
 
 
@@ -132,3 +135,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

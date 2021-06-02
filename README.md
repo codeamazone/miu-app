@@ -36,22 +36,13 @@ Via the update page you can edit the details of a specific idea.
 On the delete page you can delete a specific idea.
 ![screenshot](static/img/screenshot_delete.PNG)
 
-## How to use locally on your computer
+## How to use locally on your computer in a
+
+## Docker development container
 
 - Fork/clone this repository
 - Download and install [Python](https://www.python.org/downloads/)
-- install Pipenv
-
-```
-pip3 install pipenv
-```
-
-- open the project folder in your shell and install the dependencies with Pipenv. If you don't want to use Pipenv, you can also open the project in a virtual env and use requirements.txt
-
-```
-pipenv install
-```
-
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - In the project folder create a file named .env on the same level as the manage.py file
 - Create a secret key by running the follwing command in your shell. The output string of 50 characters is your secret key. Copy it.
 
@@ -62,37 +53,25 @@ python -c "import secrets; print(secrets.token_urlsafe())"
 - Paste the secret key **in the .env file** like this (your secret key goes where it says 'secret_key'):
 
 ```
-export SECRET_KEY='secret_key'
+SECRET_KEY='secret_key'
 ```
 
-- Make sure that the database settings in settings.py correspond to the database you would like to use. For using the SQLite database that comes with Django by default, uncomment the two lines for SQLite and mark the MYySQL lines as a comment.
-  Otherwise, make sure to take all necessary steps to connect your DB of choice to the app. For using MySQL, you can follow this tutorial: https://morioh.com/p/4a4dc1e50d7d
-
-Activate the virtual environment
+Then, add the value for debug and the database credentials for the mysql container below the secret key like this:
 
 ```
-pipenv shell
+DJANGO_DEBUG=True
+DATABASE_URL=mysql://root:secret@db:3306/miu
 ```
 
-- Migrate
-
-  In your shell, execute the following commands for migrations:
-
-```
-python manage.py makemigrations ideas
-```
+- Open the Docker dashboard
+- Open the miu folder in your shell
+- Start the Docker container network by running the following command:
 
 ```
-python manage.py migrate
+docker-compose up --build
 ```
 
-- Start the server
-
-```
-python manage.py runserver
-```
-
-If everything has worked, your shell should provide you with the address with which to open the app in your browser (http://127.0.0.1:8000/)
+If everything has worked, you should see the miu network on your Docker dashboard. Open the the app in your browser (http://127.0.0.1:8000/).
 
 <br/>
 <br/>

@@ -5,7 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
-environs = {extras = ["django"], version = "*"}
+django-environ = "*"
+psycopg2-binary = "~=2.8.6"
 mysqlclient = "*"
 
 [dev-packages]
