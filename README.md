@@ -40,15 +40,15 @@ On the delete page you can delete a specific idea.
 
 - Fork/clone this repository
 - Download and install [Python](https://www.python.org/downloads/)
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- In the project folder create a file named .env on the same level as the manage.py file
-- Create a secret key by running the follwing command in your shell. The output string of 50 characters is your secret key. Copy it.
+- Install [Docker](https://www.docker.com/get-started)
+- In the miu/config folder create a file named .env
+- Create a secret key by running the follwing command in your shell. The output string is your secret key. Copy it.
 
 ```
-python -c "import secrets; print(secrets.token_urlsafe())"
+python3 -c "import secrets; print(secrets.token_urlsafe())"
 ```
 
-- Paste the secret key **in the .env file** like this (your secret key goes where it says 'secret_key'):
+- Paste the secret key **in the .env file** like this (your secret key goes inside the '' where it says secret_key):
 
 ```
 SECRET_KEY='secret_key'
@@ -61,15 +61,49 @@ DJANGO_DEBUG=True
 DATABASE_URL=mysql://root:secret@db:3306/miu
 ```
 
-- Open the Docker dashboard
-- Open the miu folder in your shell
+- Open the Docker dashboard (Windows) and your terminal/cmd prompt
+- change into the miu folder
 - Start the Docker container network by running the following command:
 
+*On Windows*
 ```
-docker-compose up --build
+$ docker-compose up --build
+``` 
+
+*On Linux*
+```
+$sudo docker-compose up --build
+```
+<br>
+If you are running the containers for the first time, you need to migrate the table data to the database. For this, open another shell and find out the id of the miu container:
+
+*On Windows*
+```
+$ docker ps
 ```
 
-If everything has worked, you should see the miu network on your Docker dashboard. Open the the app in your browser (http://127.0.0.1:8000/).
+*On Linux*
+```
+$ sudo docker ps
+```
+<br>
+Copy the id of the miu container and access that container in a subshell to run the migrations:
+
+*On Windows*
+```
+$ docker exec -it <id_of_container> sh
+# python3 manage.py migrate
+```
+
+*On Linux*
+```
+$ sudo docker exec -it <id_of_container> sh
+# python3 manage.py migrate
+```
+
+
+
+If everything has worked, you should be able to open the app in your browser (http://127.0.0.1:8000/).
 
 <br/>
 <br/>
